@@ -1,34 +1,25 @@
 import type { GetStaticProps, NextPage } from 'next'
 import styled from 'styled-components'
-import Link from 'next/link'
-import { IProduct } from './types'
+import { ProductList } from '../../types/product'
+import Sidebar from '../../products/ui/Sidebar'
+import ProductGrid from '../../products/ui/ProductGrid'
+import { DefaultContainer } from '../../styles/global'
 
-const GridContainer = styled.section`
-  margin: 0 auto;
-  max-width: 75%;
-  display: grid;
+const FlexContainer = styled(DefaultContainer)`
+  display: flex;
+  padding: 15px;
+  min-width: 978px;
+  max-width: 1680px;
 `
 
-interface Props {
-  products: IProduct[];
-}
+const AllProductsPage: NextPage<ProductList> = ({ products }) => {
 
-const AllProductsPage: NextPage<Props> = ({products}) => {
-  
   return (
     <>
-      <GridContainer>
-        {products.map((product: any, index: number) => {
-          return (
-            <div key={index}>
-              <Link href={`products/${product.slug}`}>
-                <a>{product.name}</a>
-              </Link>
-            </div>
-          )
-        })}
-        {JSON.stringify(products)}
-      </GridContainer>
+      <FlexContainer>
+        <Sidebar />
+        <ProductGrid products={products} title={"All Products"}/>
+      </FlexContainer>
     </>
   )
 }

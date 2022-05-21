@@ -6,7 +6,9 @@ const nextConfig = {
     styledComponents: true
   },
   images: {
-    domains:["https://127.0.0.1:8000"]
+    domains:[
+      "127.0.0.1",
+    ]
   }
 }
 

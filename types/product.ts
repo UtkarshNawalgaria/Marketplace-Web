@@ -12,3 +12,7 @@ export interface ICategory {
     name: string;
     url: string;
 }
+
+export interface ProductList {
+    products: IProduct[]
+}

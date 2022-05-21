@@ -16,11 +16,6 @@ const navLinks: NavLinks[] =  [
         title: "Signup",
         path: "/signup",
     },
-    {
-        id: 3,
-        title: "Login",
-        path: "/login",
-    }
 ]
 
 export default navLinks

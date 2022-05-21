@@ -1,19 +1,12 @@
 import type { AppProps } from 'next/app'
-import { createGlobalStyle, ThemeProvider} from 'styled-components'
+import { ThemeProvider} from 'styled-components'
 import Layout from '../components/Layout'
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`
+import GlobalStyle from '../styles/global'
 
 const theme = {
   colors: {
     primary: "#0070f3"
-  }
+  },
 }
 
 function MyApp({ Component, pageProps }: AppProps) {

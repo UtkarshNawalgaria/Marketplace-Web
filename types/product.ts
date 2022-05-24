@@ -1,3 +1,20 @@
+export interface Image {
+    full?: string;
+    thumbnail?: string
+}
+
+export interface IProductMedia {
+    image: Image;
+    image_alt_text: string;
+}
+
+export interface ICategory {
+    id: number;
+    name: string;
+    url: string;
+    background_image?: Image
+}
+
 export interface IProduct {
     url: string;
     name: string;
@@ -5,12 +22,7 @@ export interface IProduct {
     slug: string;
     description: string;
     categories: ICategory[];
-}
-
-export interface ICategory {
-    id: number;
-    name: string;
-    url: string;
+    media: IProductMedia[]
 }
 
 export interface ProductList {

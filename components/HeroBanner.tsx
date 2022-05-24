@@ -33,7 +33,6 @@ const HeroBanner = () => {
           <img
             src={"/images/hero_banner.webp"}
             alt="Hero Banner"
-            layout="responsive"
           />
         </a>
       </Link>

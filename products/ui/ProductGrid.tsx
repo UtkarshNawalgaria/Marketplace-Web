@@ -1,46 +1,61 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IProduct } from "../../types/product";
-import { Container, GridContainer, Title } from "../styles";
+import {
+  Title,
+  ProductGridItem,
+  ProductGridContainer,
+  ProductGridItemImage,
+  ProductGridItemDetails,
+  ProductListPageContainer,
+} from "../styles";
+import ProductPrice from "./ProductPrice";
 
 interface Props {
   products: IProduct[];
-  title: string;
+  sectionTitle: string;
 }
 
-function ProductGrid({ products, title }: Props) {
+function ProductGrid({ products, sectionTitle }: Props) {
   return (
-    <Container>
-      <Title>{title}</Title>
-      <GridContainer>
+    <ProductListPageContainer>
+      <Title>{sectionTitle}</Title>
+      <ProductGridContainer>
         {products.map((product: any) => {
           return (
-            <div key={product.slug}>
+            <ProductGridItem key={product.slug}>
               <Link href={`/products/${product.slug}/`}>
                 <a>
-                  <Image
+                  <ProductGridItemImage
                     src={
                       product.media.length
                         ? product.media[0].image.thumbnail
-                        : "/images/placeholders/placeholder_250x250.png"
+                        : "/images/placeholders/placeholder_320.png"
                     }
                     alt={
                       product.media.length
                         ? product.media[0].image.image_alt_text
                         : product.name
                     }
-                    height={250}
-                    width={250}
                   />
-                  <p>{product.name}</p>
+                  <ProductGridItemDetails>
+                    <div className="product-list-item-title">
+                      <h3>{product.name}</h3>
+                    </div>
+                    <div className="product-list-item-price">
+                      <ProductPrice
+                        retailPrice={product.retail_price}
+                        salePrice={product.sale_price}
+                      />
+                    </div>
+                  </ProductGridItemDetails>
                 </a>
               </Link>
-            </div>
+            </ProductGridItem>
           );
         })}
-      </GridContainer>
-    </Container>
+      </ProductGridContainer>
+    </ProductListPageContainer>
   );
 }
 

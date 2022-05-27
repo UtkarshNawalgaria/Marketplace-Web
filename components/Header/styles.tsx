@@ -28,6 +28,7 @@ const NavContainer = styled.nav`
 const NavItem = styled.div<{ active: boolean }>`
   padding: 5px 10px;
   position: relative;
+  cursor: pointer;
 
   @media (max-width: 768px) {
     display: none;
@@ -63,7 +64,6 @@ const NavIcons = styled.div`
 `
 
 const HamburgerIcon = styled.button`
-  all: unset;
   cursor: pointer;
   font-size: 20px;
   color: white;
@@ -78,7 +78,6 @@ const HamburgerIcon = styled.button`
 `
 
 const CartIcon = styled.button`
-  all: unset;
   cursor: pointer;
   font-size: 20px;
   color: white;
@@ -120,7 +119,7 @@ const DrawerContainer = styled.aside<{ openDrawer: boolean }>`
   background-color: #ffffff;
 
   @media (min-width: 768px) {
-      display: none;
+    display: none;
   }
 
   div {

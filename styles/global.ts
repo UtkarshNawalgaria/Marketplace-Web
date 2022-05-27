@@ -9,6 +9,15 @@ export default createGlobalStyle`
         box-sizing: border-box;
         font-family: Cera, "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
+
+    a {
+      all: unset;
+      cursor: pointer;
+    }
+
+    button {
+      all: unset;
+    }
 `
 
 export const DefaultTitle = styled.h1`
@@ -17,7 +26,4 @@ export const DefaultTitle = styled.h1`
 
 export const DefaultContainer = styled.div`
   margin: 0 auto;
-  /* max-width: 75%; */
 `
-
-export const DefaultButton = styled.button``;

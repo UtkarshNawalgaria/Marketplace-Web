@@ -22,7 +22,10 @@ export interface IProduct {
     slug: string;
     description: string;
     categories: ICategory[];
-    media: IProductMedia[]
+    media: IProductMedia[];
+    retail_price: string;
+    sale_price: string;
+    discount?: string
 }
 
 export interface ProductList {

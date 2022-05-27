@@ -1,11 +1,32 @@
 import Head from "next/head";
 import { GetStaticProps, NextPage } from "next/types";
 import React from "react";
+import styled from "styled-components";
+import { ImageGallery, ProductDetails } from "../../products/ui";
+import { DefaultContainer } from "../../styles/global";
 import { IProduct } from "../../types/product";
 
 interface Props {
   product: any;
 }
+
+const Container = styled(DefaultContainer)`
+  display: flex;
+  gap: 2rem;
+  width: 75%;
+  margin-top: 2rem;
+
+  & > * {
+    flex-basis: 100%;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0;
+  }
+`
 
 const SingleProductPage: NextPage<Props> = ({ product }) => {
   return (
@@ -13,7 +34,10 @@ const SingleProductPage: NextPage<Props> = ({ product }) => {
       <Head>
         <title>{product.name}</title>
       </Head>
-      <p>Product Detail Page - {product.name}</p>
+      <Container>
+        <ImageGallery media={product.media} />
+        <ProductDetails product={product} />
+      </Container>
     </>
   );
 };

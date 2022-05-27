@@ -1,0 +1,6 @@
+export { default as ImageGallery } from './ImageGallery'
+export { default as ProductTitle } from './ProductTitle'
+export { default as ProductDetails } from './ProductDetails'
+export { default as ProductPrice } from './ProductPrice'
+export { default as ProductDescription } from './ProductDescription'
+export { default as ProductGrid } from './ProductGrid'
